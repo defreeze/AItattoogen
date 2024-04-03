@@ -87,7 +87,7 @@ function App() {
                 <>
                   <img src="/AI_tattoo_girl_1.png" alt="AI Tarot" className="bottom-right-image-woman" />
                   {/*<img src="/AI_tarot_final1_wise_woman_animation.png" alt="AI_female_animate" className="AI-woman-animate" />*/}
-                  <img src="/AI_tarot_final1_wise_woman_animation2.png" alt="AI_female_animate" className="AI-woman-animate2" />
+                  <img src="/AI_tattoo_girl_1_animation.png" alt="AI_female_animate" className="AI-woman-animate2" />
 
                   <div className="center-container">
                     <img src="/spell-visual1.png" alt="loading_female_animate" className={`loading-visual-female ${loading ? '' : 'hidden'}`} />

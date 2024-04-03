@@ -702,12 +702,11 @@ body {
 .AI-woman-animate2 {
   position: fixed;
   bottom: 0;
-  right: 0%;
+  right: 0;
   z-index: 2;
-  animation: float 5s ease-in-out infinite;
+  animation: fadeInOut 5s infinite;
   width: 25%;
   height: auto;
-  opacity: 0.8;
 }
 
 @keyframes float {
