@@ -85,7 +85,7 @@ function App() {
               {/* Main Content */}
               {choice === "1" || choice === "2" ? (
                 <>
-                  <img src="/AI_tarot_final1_wise_woman3.png" alt="AI Tarot" className="bottom-right-image-woman" />
+                  <img src="/AI_tattoo_girl_1.png" alt="AI Tarot" className="bottom-right-image-woman" />
                   {/*<img src="/AI_tarot_final1_wise_woman_animation.png" alt="AI_female_animate" className="AI-woman-animate" />*/}
                   <img src="/AI_tarot_final1_wise_woman_animation2.png" alt="AI_female_animate" className="AI-woman-animate2" />
 
