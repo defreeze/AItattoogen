@@ -1,5 +1,11 @@
 {
   "projects": {
     "default": "aitattoogen"
+  },
+  "targets": {},
+  "etags": {
+    "aitattoogen": {
+      "extensionInstances": {}
+    }
   }
 }
