@@ -1,0 +1,106 @@
+[debug] [2024-04-04T22:00:12.106Z] ----------------------------------------------------------------------
+[debug] [2024-04-04T22:00:12.108Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\alexd\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-04-04T22:00:12.109Z] CLI Version:   13.6.1
+[debug] [2024-04-04T22:00:12.109Z] Platform:      win32
+[debug] [2024-04-04T22:00:12.109Z] Node Version:  v18.15.0
+[debug] [2024-04-04T22:00:12.115Z] Time:          Fri Apr 05 2024 00:00:12 GMT+0200 (Midden-Europese zomertijd)
+[debug] [2024-04-04T22:00:12.115Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-04T22:00:12.119Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-04-04T22:00:12.225Z] Object ".remoteconfig" in "firebase.json" is missing required property: {"missingProperty":"template"}
+[debug] [2024-04-04T22:00:12.231Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-04T22:00:12.232Z] > authorizing via signed-in user (alexthevries@gmail.com)
+[debug] [2024-04-04T22:00:12.232Z] [iam] checking project aitattoogen for permissions ["cloudconfig.configs.get","cloudconfig.configs.update","cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create",null]
+[debug] [2024-04-04T22:00:12.233Z] > refreshing access token with scopes: []
+[debug] [2024-04-04T22:00:12.234Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-04-04T22:00:12.234Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-04T22:00:12.547Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-04-04T22:00:12.547Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-04-04T22:00:12.676Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-04-04T22:00:12.676Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-04T22:00:12.690Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/aitattoogen:testIamPermissions [none]
+[debug] [2024-04-04T22:00:12.690Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/aitattoogen:testIamPermissions x-goog-quota-user=projects/aitattoogen
+[debug] [2024-04-04T22:00:12.690Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/aitattoogen:testIamPermissions {"permissions":["cloudconfig.configs.get","cloudconfig.configs.update","cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create",null]}
+[debug] [2024-04-04T22:00:12.951Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/aitattoogen:testIamPermissions 200
+[debug] [2024-04-04T22:00:12.951Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/aitattoogen:testIamPermissions {"permissions":["cloudconfig.configs.get","cloudconfig.configs.update","cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2024-04-04T22:00:12.951Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project aitattoogen:
+
+  
+[debug] [2024-04-04T22:00:12.951Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/aitattoogen/serviceAccounts/aitattoogen@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-04-04T22:00:12.951Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/aitattoogen/serviceAccounts/aitattoogen@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-04-04T22:00:13.203Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/aitattoogen/serviceAccounts/aitattoogen@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-04-04T22:00:13.203Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/aitattoogen/serviceAccounts/aitattoogen@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-04-04T22:00:13.204Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/aitattoogen [none]
+[debug] [2024-04-04T22:00:13.503Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/aitattoogen 200
+[debug] [2024-04-04T22:00:13.503Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/aitattoogen {"projectId":"aitattoogen","projectNumber":"664405830740","displayName":"aitattoogen","name":"projects/aitattoogen","resources":{"hostingSite":"aitattoogen","realtimeDatabaseInstance":"aitattoogen-default-rtdb","storageBucket":"aitattoogen.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_41cd8664-1974-4bc7-baa4-145f1ea347ec"}
+[debug] [2024-04-04T22:00:13.504Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/aitattoogen [none]
+[debug] [2024-04-04T22:00:13.780Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/aitattoogen 200
+[debug] [2024-04-04T22:00:13.781Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/aitattoogen {"projectId":"aitattoogen","projectNumber":"664405830740","displayName":"aitattoogen","name":"projects/aitattoogen","resources":{"hostingSite":"aitattoogen","realtimeDatabaseInstance":"aitattoogen-default-rtdb","storageBucket":"aitattoogen.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_41cd8664-1974-4bc7-baa4-145f1ea347ec"}
+[info] 
+[info] === Deploying to 'aitattoogen'...
+[info] 
+[info] i  deploying database, storage, firestore, functions, hosting, remoteconfig, extensions 
+[info] i  database: checking rules syntax... 
+[debug] [2024-04-04T22:00:13.787Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/aitattoogen/locations/-/instances/aitattoogen-default-rtdb [none]
+[debug] [2024-04-04T22:00:14.564Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/aitattoogen/locations/-/instances/aitattoogen-default-rtdb 200
+[debug] [2024-04-04T22:00:14.564Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/aitattoogen/locations/-/instances/aitattoogen-default-rtdb {"name":"projects/664405830740/locations/europe-west1/instances/aitattoogen-default-rtdb","project":"projects/664405830740","databaseUrl":"https://aitattoogen-default-rtdb.europe-west1.firebasedatabase.app","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[debug] [2024-04-04T22:00:14.566Z] >>> [apiv2][query] PUT https://aitattoogen-default-rtdb.europe-west1.firebasedatabase.app/.settings/rules.json dryRun=true
+[debug] [2024-04-04T22:00:14.566Z] >>> [apiv2][body] PUT https://aitattoogen-default-rtdb.europe-west1.firebasedatabase.app/.settings/rules.json "{\n  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */\n  \"rules\": {\n    \".read\": false,\n    \".write\": false\n  }\n}"
+[debug] [2024-04-04T22:00:14.721Z] <<< [apiv2][status] PUT https://aitattoogen-default-rtdb.europe-west1.firebasedatabase.app/.settings/rules.json 200
+[debug] [2024-04-04T22:00:14.721Z] <<< [apiv2][body] PUT https://aitattoogen-default-rtdb.europe-west1.firebasedatabase.app/.settings/rules.json {"status":"ok"}
+[info] +  database: rules syntax for database aitattoogen-default-rtdb is valid 
+[info] i  storage: ensuring required API firebasestorage.googleapis.com is enabled... 
+[debug] [2024-04-04T22:00:14.724Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/firebasestorage.googleapis.com [none]
+[debug] [2024-04-04T22:00:14.724Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/firebasestorage.googleapis.com x-goog-quota-user=projects/aitattoogen
+[debug] [2024-04-04T22:00:15.691Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/firebasestorage.googleapis.com 200
+[debug] [2024-04-04T22:00:15.691Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/firebasestorage.googleapis.com [omitted]
+[info] +  storage: required API firebasestorage.googleapis.com is enabled 
+[debug] [2024-04-04T22:00:15.692Z] >>> [apiv2][query] GET https://firebasestorage.googleapis.com/v1alpha/projects/aitattoogen/defaultBucket [none]
+[debug] [2024-04-04T22:00:16.407Z] <<< [apiv2][status] GET https://firebasestorage.googleapis.com/v1alpha/projects/aitattoogen/defaultBucket 200
+[debug] [2024-04-04T22:00:16.407Z] <<< [apiv2][body] GET https://firebasestorage.googleapis.com/v1alpha/projects/aitattoogen/defaultBucket {"name":"projects/aitattoogen/defaultBucket","location":"EU","bucket":{"name":"projects/aitattoogen/buckets/aitattoogen.appspot.com"}}
+[info] i  firebase.storage: checking storage.rules for compilation errors... 
+[debug] [2024-04-04T22:00:16.410Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/aitattoogen:test [none]
+[debug] [2024-04-04T22:00:16.410Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/aitattoogen:test [omitted]
+[debug] [2024-04-04T22:00:17.187Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/aitattoogen:test 200
+[debug] [2024-04-04T22:00:17.188Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/aitattoogen:test {}
+[info] +  firebase.storage: rules file storage.rules compiled successfully 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2024-04-04T22:00:17.191Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/aitattoogen:test [none]
+[debug] [2024-04-04T22:00:17.191Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/aitattoogen:test [omitted]
+[debug] [2024-04-04T22:00:17.435Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/aitattoogen:test 200
+[debug] [2024-04-04T22:00:17.435Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/aitattoogen:test {}
+[info] +  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2024-04-04T22:00:17.438Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/aitattoogen [none]
+[debug] [2024-04-04T22:00:17.727Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/aitattoogen 200
+[debug] [2024-04-04T22:00:17.728Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/aitattoogen {"projectId":"aitattoogen","projectNumber":"664405830740","displayName":"aitattoogen","name":"projects/aitattoogen","resources":{"hostingSite":"aitattoogen","realtimeDatabaseInstance":"aitattoogen-default-rtdb","storageBucket":"aitattoogen.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_41cd8664-1974-4bc7-baa4-145f1ea347ec"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-04-04T22:00:17.731Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-04-04T22:00:17.731Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/aitattoogen
+[debug] [2024-04-04T22:00:17.733Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-04-04T22:00:17.733Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/aitattoogen
+[debug] [2024-04-04T22:00:17.734Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/cloudbuild.googleapis.com [none]
+[debug] [2024-04-04T22:00:17.734Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/cloudbuild.googleapis.com x-goog-quota-user=projects/aitattoogen
+[debug] [2024-04-04T22:00:17.736Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/artifactregistry.googleapis.com [none]
+[debug] [2024-04-04T22:00:17.736Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/artifactregistry.googleapis.com x-goog-quota-user=projects/aitattoogen
+[debug] [2024-04-04T22:00:18.619Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/runtimeconfig.googleapis.com 200
+[debug] [2024-04-04T22:00:18.619Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-04-04T22:00:18.625Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/cloudfunctions.googleapis.com 200
+[debug] [2024-04-04T22:00:18.625Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-04-04T22:00:18.633Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/cloudbuild.googleapis.com 200
+[debug] [2024-04-04T22:00:18.633Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-04-04T22:00:18.646Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/artifactregistry.googleapis.com 200
+[debug] [2024-04-04T22:00:18.646Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/aitattoogen/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-04-04T22:00:18.647Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/aitattoogen/adminSdkConfig [none]
+[debug] [2024-04-04T22:00:19.212Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/aitattoogen/adminSdkConfig 200
+[debug] [2024-04-04T22:00:19.212Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/aitattoogen/adminSdkConfig {"projectId":"aitattoogen","databaseURL":"https://aitattoogen-default-rtdb.europe-west1.firebasedatabase.app","storageBucket":"aitattoogen.appspot.com","locationId":"europe-west"}
+[debug] [2024-04-04T22:00:19.213Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/aitattoogen/configs [none]
+[debug] [2024-04-04T22:00:19.565Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/aitattoogen/configs 200
+[debug] [2024-04-04T22:00:19.566Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/aitattoogen/configs {}
+[debug] [2024-04-04T22:00:19.568Z] Validating nodejs source
