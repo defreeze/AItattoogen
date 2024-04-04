@@ -1,8 +1,8 @@
 // preloadImages.js
 
 const imageUrls = [
-    "/AI_tarot_final1_wise_woman.png",
-    "/AI_tarot_final1_wise_woman_animation.png",
+    "/AI_tarot_final1.png",
+    "/AI_tarot_final1_animation.png",
     "/spell-visual1.png",
     //"/AI_tarot_final1_female.png",
     //"/AI_tarot_final1_female_animation.png",

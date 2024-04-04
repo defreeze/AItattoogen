@@ -5,17 +5,14 @@ import { preloadImages } from './preloadImages';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AboutPage from './aboutPage';
 import AccountPage from './AccountPage';
-
 import './firebaseConfig';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
-
 
 function App() {
   const [loading, setLoading] = useState(false);
   const [choice, setChoice] = useState("");
   const [showPasswordPage, setShowPasswordPage] = useState(false);
   const [profile, setProfile] = useState(null);
-
 
   //firebase
   const auth = getAuth();
@@ -57,7 +54,6 @@ function App() {
   useEffect(() => {
     preloadImages();
   }, []);
-
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
