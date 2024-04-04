@@ -63,8 +63,7 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
             "Page of Pentacles", "Knight of Pentacles", "Queen of Pentacles", "King of Pentacles"
         ]);
         // Function to pick a random emoji
-        const emojis = ['💫', '🔮', '✨', '🌟', '🌙', '🌕', '🌖', '🌗', '🌘', '🌑', '💀', '🌈', '☄️', '🍀', '🪐', '🧞', '🌤️', '🏅', '🥈', '🥉', '🥇', '🎭', '🎰', '🕯️', '📿', '🗝️', '🎊', '☀️', '⚡'
-            , '🤖', '💝', '💞', '🃏', '🧠', '👁️‍🗨️', '♾️', '🎶', '🦾', '💔', '🧚‍♀️', '👼', '🗺️', '👑', '🐉', '🎲', '🥀', '🎎', '🎓', '🧬', '🦋', '🌸', '🎋', '💩', '☮️', '🙏', '🌹', '👾', '🌏', '🥠', '🤡', '🍾', '💒', '💸', '🏳️', '🎐', '🕊️'];
+        const emojis = ['👺', '🌈', '💩', '☮️', '👾', '👽', '🤡', '💸', '🎐', '🔗', '💉', '🤖'];
         const pickRandomEmoji = () => {
             const randomIndex = Math.floor(Math.random() * emojis.length);
             return emojis[randomIndex];
@@ -304,7 +303,7 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
 
     return (
         <div className="container">
-            <h2>{emoji} Divination by AI{emoji}</h2>
+            <h2>{emoji} another AI tattoo genetator{emoji}</h2>
             <div className="input-wrapper">
                 <div className="user-info">
                     <input
