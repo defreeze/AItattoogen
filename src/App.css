@@ -75,7 +75,7 @@
 
 .header-button {
   /* Styling for individual buttons */
-  background-color: hsl(272, 18%, 41%);
+  background-color: rgb(40, 60, 160);
   border: 0px solid #ccc;
   padding: 5px 10px;
   cursor: pointer;
@@ -130,9 +130,9 @@
 
 .my_account_button:hover {
   text-decoration: none;
-  background-color: hsl(272, 18%, 41%);
+  background-color: rgb(40, 60, 160);
   color: rgb(255, 255, 255);
-  border: 3px solid hsl(272, 18%, 41%);
+  border: 3px solid rgb(40, 60, 160);
 }
 
 .header-button-google .google-logo {
