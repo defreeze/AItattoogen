@@ -104,3 +104,36 @@
 [debug] [2024-04-04T22:00:19.565Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/aitattoogen/configs 200
 [debug] [2024-04-04T22:00:19.566Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/aitattoogen/configs {}
 [debug] [2024-04-04T22:00:19.568Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2024-04-04T22:00:21.719Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-04-04T22:00:21.719Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-04-04T22:00:21.721Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-04-04T22:00:21.732Z] Found firebase-functions binary at 'C:\Users\alexd\Documents\AI-tarot-reading\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8279
+
