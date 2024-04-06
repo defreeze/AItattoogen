@@ -1,6 +1,6 @@
 /* aboutpage CSS */
 .container2 {
-    background-color: rgb(46, 24, 70);
+    background-color: rgb(40, 60, 160);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,7 +35,7 @@
 
 .home-button {
     /* Styling for individual buttons */
-    background-color: hsl(272, 18%, 41%);
+    background-color: rgb(54, 79, 205);
     border: 0px solid #ccc;
     padding: 5px 10px;
     cursor: pointer;
@@ -54,7 +54,7 @@
     width: 100%;
     padding: 15px;
     font-size: 14px;
-    background-color: rgb(46, 24, 70);
+    background-color: rgb(40, 60, 160);
     color: #a49f9f;
     box-sizing: border-box;
 }
@@ -91,7 +91,7 @@
     flex: 1;
     padding: 10px 10px;
     max-width: 60%;
-    border: 2px solid rgb(74, 40, 110);
+    border: 2px solid rgb(40, 60, 160);
 }
 
 .about-column p {

@@ -1,6 +1,6 @@
 /* aboutpage CSS */
 .container2 {
-    background-color: #341e4f;
+    background-color: rgb(40, 60, 160);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,16 +61,16 @@
     padding: 11px 20px;
     border-radius: 5px;
     text-decoration: none;
-    background-color: #341e4f;
+    background-color: rgb(40, 60, 160);
     color: rgb(255, 255, 255);
-    border: 2px solid rgb(70, 43, 94);
+    border: 2px solid rgb(59, 83, 203);
 }
 
 .home-button:hover {
     text-decoration: none;
-    background-color: hsl(272, 18%, 41%);
+    background-color: rgb(59, 83, 203);
     color: rgb(255, 255, 255);
-    border: 3px solid hsl(272, 18%, 41%);
+    border: 3px solid rgb(59, 83, 203);
 }
 
 .App-footer2 {
@@ -78,7 +78,7 @@
     width: 100%;
     padding: 15px;
     font-size: 14px;
-    background-color: #341e4f;
+    background-color: rgb(40, 60, 160);
     color: #a49f9f;
     box-sizing: border-box;
 }
@@ -102,13 +102,13 @@
 }
 
 .header-button-google:hover {
-    background-color: #341e4f;
+    background-color: rgb(40, 60, 160);
     color: rgb(255, 255, 255);
 
 }
 
 .header-button-google {
-    background-color: #341e4f;
+    background-color: rgb(40, 60, 160);
     ;
     /* Google blue */
     color: rgb(168, 168, 168);
@@ -155,8 +155,8 @@
     flex: 1;
     padding: 10px 10px;
     max-width: 80%;
-    border: 2px solid rgb(70, 43, 94);
-    background-color: rgb(46, 24, 70);
+    border: 2px solid rgb(72, 97, 221);
+    background-color: rgb(40, 60, 160);
 }
 
 .about-column p {
