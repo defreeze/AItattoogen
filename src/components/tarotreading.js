@@ -322,16 +322,15 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                         onChange={(e) => setMoodChoice(e.target.value)}
                         disabled={inputsDisabled}
                     >
-                        {moodChoice === "" && <option value="" hidden>Your current mood</option>}
-                        <option value="1">😄 happy</option>
-                        <option value="2">😢 sad</option>
-                        <option value="3">😱 fear</option>
-                        <option value="4">🤮 disgust</option>
-                        <option value="5">😡 anger</option>
-                        <option value="6">😲 surprise</option>
-                        <option value="7">😰 anxious</option>
-                        <option value="8">😐 numb / unclear</option>
-                        <option value="9">😎 we coolin'</option>
+                        {moodChoice === "" && <option value="" hidden>reason for tattoo</option>}
+                        <option value="1">🕊️ Memorial</option>
+                        <option value="2">📿 Spiritual</option>
+                        <option value="3">🦸 Personal milestone</option>
+                        <option value="4">🤪 for fun</option>
+                        <option value="5">🎙️ self expression</option>
+                        <option value="6">💞 sense of belonging</option>
+                        <option value="7">💔 heartbreak</option>
+                        <option value="8">🚫 i dont want to share</option>
                     </select>
 
                     <select
@@ -340,13 +339,13 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                         onChange={(e) => setChoice(e.target.value)}
                         disabled={inputsDisabled}
                     >
-                        {choice === "" && <option value="" hidden>Card reading type</option>}
-                        <option value="1">Past/Present/Future</option>
-                        <option value="2">Action/Outcome</option>
-                        <option value="3">Relationship Review</option>
-                        <option value="4">Career Path</option>
-                        <option value="5">Daily Insight</option>
-                        <option value="6">Weekly Insight</option>
+                        {choice === "" && <option value="" hidden>Tattoo style</option>}
+                        <option value="1">blackwork/tribal</option>
+                        <option value="2">geometric</option>
+                        <option value="3">watercolor</option>
+                        <option value="4">Japanese</option>
+                        <option value="5">cartoon</option>
+                        <option value="6">ignorant</option>
 
                     </select>
                 </div>
@@ -390,13 +389,14 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                     disabled={loading2}
 
                 >
-                    {loading2 ? 'Drawing cards' : 'Click to draw cards'}
+                    {loading2 ? 'Drawing cards' : 'Generate Tattoo'}
                 </button>
 
 
             )}
+            
             {/* deck container */}
-            {showTarotDeck && (
+            {/*showTarotDeck && (
                 <div className="tarot-deck-container" >
                     <img src="tarot1_stack1.png" alt="tarot1_stack1" className="tarot1_stack1" />
                     {tarotCard1Src && <img src={tarotCard1Src} alt="tarot2_card1" className="tarot2_card1" style={{ '--slide-direction': tarotCard1Direction }} />}
@@ -407,8 +407,8 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                     <img src="tarot7_stack4_v2.png" alt="tarot7_stack4" className="tarot7_stack4" />
                     <img src="tarot8_stack5_v2.png" alt="tarot8_stack5" className="tarot8_stack5" />
 
-                </div>)}
-
+                </div>)*/}
+                
 
 
             {stage >= 1 && (

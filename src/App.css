@@ -123,16 +123,18 @@
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
-  background-color: #341e4f;
+  background-color: rgb(40, 60, 160);
+  ;
   color: rgb(255, 255, 255);
-  border: 2px solid rgb(70, 43, 94);
+  border: 2px solid rgb(24, 36, 97);
+  ;
 }
 
 .my_account_button:hover {
   text-decoration: none;
   background-color: rgb(40, 60, 160);
   color: rgb(255, 255, 255);
-  border: 3px solid rgb(40, 60, 160);
+  border: 3px solid rgb(18, 28, 76);
 }
 
 .header-button-google .google-logo {
@@ -445,7 +447,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: #ffffff;
-  border: 2px solid rgb(74, 40, 110);
+  border: 2px solid rgb(25, 38, 100);
   max-width: 600px;
   margin: 20px auto;
   padding: 15px;
@@ -867,7 +869,8 @@ body {
   max-width: 600px;
   margin: 20px auto;
   padding: 15px;
-  border: 2px solid rgb(61, 36, 85);
+  border: 2px solid rgb(24, 36, 95);
+  ;
   /*  border: 2px solid rgb(74, 40, 110); */
   border-radius: 5px;
   word-wrap: break-word;
@@ -876,7 +879,7 @@ body {
   line-height: 1.6;
   color: #ffffff;
   text-align: justify;
-  background-color: rgb(46, 24, 70);
+  background-color: rgb(50, 73, 188);
 }
 
 .generated-text h3 {
@@ -920,14 +923,14 @@ body {
 .user-select:disabled,
 .prompt-input:disabled {
   color: #ffffff;
-  background-color: rgb(46, 24, 70);
-  border: 1px solid rgb(70, 43, 94);
+  background-color: rgb(40, 60, 160);
+  border: 1px solid rgb(25, 38, 101);
   opacity: 1;
 }
 
 .user-input:disabled::placeholder,
 .user-select:disabled::placeholder,
 .prompt-input:disabled::placeholder {
-  color: rgb(108, 79, 133);
+  color: rgb(40, 60, 160);
   opacity: 1;
 }
