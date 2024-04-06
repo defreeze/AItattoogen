@@ -92,8 +92,8 @@ function App() {
                 </>
               ) : choice === "3" || choice === "4" ? (
                 <>
-                  <img src="/AI_tarot_final1_young_womanv2.png" alt="AI Tarot" className="bottom-right-image-female" />
-                  <img src="/AI_tarot_final1_young_womanv2_animation.png" alt="AI_female_animate" className="AI-female-animate" />
+                  <img src="/AI_tattoo_man_1.png" alt="AI Tarot" className="bottom-right-image-female" />
+                  <img src="/AI_tattoo_man_1_animation.png" alt="AI_female_animate" className="AI-female-animate" />
                   <div className="center-container">
                     <img src="/spell-visual1.png" alt="loading_female_animate" className={`loading-visual-female ${loading ? '' : 'hidden'}`} />
                   </div>
