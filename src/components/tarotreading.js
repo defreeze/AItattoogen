@@ -232,12 +232,12 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                         disabled={inputsDisabled}
                     >
                         {moodChoice === "" && <option value="" hidden>reason for tattoo</option>}
-                        <option value="1">🕊️ Memorial</option>
-                        <option value="2">📿 Spiritual</option>
-                        <option value="3">🦸 Personal milestone</option>
                         <option value="4">🤪 for fun</option>
                         <option value="5">🎙️ self expression</option>
+                        <option value="1">🕊️ Memorial</option>
                         <option value="6">💞 sense of belonging</option>
+                        <option value="3">🏅 Personal milestone</option>
+                        <option value="2">📿 Spiritual</option>
                         <option value="7">💔 heartbreak</option>
                         <option value="8">🚫 i dont want to share</option>
                     </select>
@@ -249,7 +249,7 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                         disabled={inputsDisabled}
                     >
                         {choice === "" && <option value="" hidden>Tattoo style</option>}
-                        <option value="1">blackwork/tribal</option>
+                        <option value="1">traditional</option>
                         <option value="2">geometric</option>
                         <option value="3">watercolor</option>
                         <option value="4">Japanese</option>
