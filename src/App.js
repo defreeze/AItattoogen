@@ -103,10 +103,10 @@ function App() {
                   <img src="/AI_tattoo_clown_2.png" alt="AI Tarot" className="bottom-right-image-female" />
                   <img src="/AI_tattoo_clown_2_animate.png" alt="Loading" className={`loading-image ${loading ? '' : 'hidden'}`} />
                   <img src="/AI_tattoo_clown_2_animate.png" alt="Tarot Star" className="AI-female-animate" />
+                  <img src="/AI_tattoo_clown_2_animation_balloon1.png" alt="Tarot Star" className="AI-balloon-animate" />
                 </>
               ) : choice === "7" ? (
                 <>
-
                   <img src="/AI_tarot_final1.png" alt="AI Tarot" className="bottom-right-image" />
                   <img src="/AI_tarot_final1_purple.png" alt="Loading" className={`loading-image ${loading ? '' : 'hidden'}`} />
                   <img src="/tarotstar2.png" alt="Tarot Star" className="tarot-star" />

@@ -72,17 +72,20 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
     }, []);
 
     const nicknames = [
-        "Mystic Mariner", "Arcane Albatross", "Seer Seahorse", "Oracle Otter",
-        "Sage Sparrow", "Prophet Parrot", "Diviner Dolphin", "Enigma Eagle",
-        "Visionary Vulture", "Sorcerer Swan", "Charm Chameleon", "Potion Penguin",
-        "Wizard Walrus", "Spirit Stork", "Guru Gorilla", "Fortune Fox",
-        "Aura Antelope", "Celestial Cat", "Enlightened Elephant", "Lunar Lynx",
-        "Starlight Squirrel", "Mystical Moose", "Cosmic Coyote", "Fable Flamingo",
-        "Galactic Gecko", "Phantom Phoenix", "Eclipse Elk", "Voodoo Vulture",
-        "Astro Aardvark", "Moonlight Meerkat", "Solar Sparrow", "Legend Lemur",
-        "Chakra Cheetah", "Zodiac Zebra", "Talisman Tiger", "Rune Rabbit",
-        "Ethereal Eel", "Occult Owl", "Majestic Macaw", "Crystal Crow"
+        "Ink Impala", "Sketchy Shark", "Canvas Coyote", "Stencil Stallion",
+        "Pigment Panther", "Palette Peacock", "Etch Elephant", "Shade Swan",
+        "Line Lynx", "Design Dragon", "Needle Nighthawk", "Shade Serpent",
+        "Artistic Antelope", "Mural Moose", "Graffiti Gorilla", "Inkwell Iguana",
+        "Tattooed Turtle", "Pictorial Penguin", "Draft Dolphin", "Brush Bison",
+        "Scribe Sparrow", "Portrait Puma", "Colorist Crow", "Mosaic Mongoose",
+        "Patterned Python", "Vibrant Viper", "Etching Eagle", "Inked Ibex",
+        "Doodle Dingo", "Silhouette Squirrel", "Masterpiece Meerkat", "Graphic Gecko",
+        "Outline Orca", "Flash Falcon", "Vector Vulture", "Hue Hyena",
+        "Illustration Imp", "Artisan Aardvark", "Quill Quokka", "Chisel Cheetah",
+        "Polish Parrot", "Ink Illusionist", "Tinted Tiger", "Carve Crane",
+        "Stencil Stoat", "Bristle Bat", "Aesthetic Anaconda", "Sketch Scorpion"
     ];
+    
 
     const now = new Date();
     // Retrieve stored click timestamps from localStorage
@@ -278,16 +281,16 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
     };
     const [currentMessage, setCurrentMessage] = useState(0);
     const loadingMessages = [
-        "Shuffling the deck...",
-        "Connecting with the energies...",
-        "Aligning the stars...",
-        "Interpreting the signs...",
-        "Revealing hidden truths...",
-        "Unveiling the mysteries...",
-        "Deciphering the symbols...",
-        "Gazing into the crystal ball...",
-        "Reading the cosmic threads...",
-        "Drawing the celestial insights..."
+        "Preparing the ink...",
+        "Sketching the outlines...",
+        "Selecting the perfect needle...",
+        "Setting up the artist's station...",
+        "Dipping into the color palette...",
+        "Sterilizing equipment...",
+        "Cleaning the canvas...",
+        "Stretching the skin...",
+        "Fine-tuning the details...",
+        "Applying the stencil..."
     ];
 
     useEffect(() => {
@@ -351,7 +354,7 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                 </div>
                 <textarea
                     className="prompt-input"
-                    placeholder="Receive your intuitive AI card reading! Share context or a specific question for an even more tailored experience..."
+                    placeholder="Want a design that's uniquely yours? Share any ideas you have in mind — it's optional, but it can help tailor the perfect tattoo for you..."
                     value={context}
                     onChange={(e) => setContext(e.target.value)}
                     disabled={inputsDisabled}
