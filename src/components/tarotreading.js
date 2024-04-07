@@ -199,6 +199,15 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
         "Applying the stencil..."
     ];
 
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.href = generatedImageUrl;
+        link.download = 'generated_tattoo.png';
+        link.target = '_blank'; // Open in a new tab
+        link.click();
+    };
+    
+
     useEffect(() => {
         if (loading) {
             const intervalId = setInterval(() => {
@@ -260,7 +269,7 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                 </div>
                 <textarea
                     className="prompt-input"
-                    placeholder="Want a design that's uniquely yours? Share any ideas you have in mind — it's optional, but it can help tailor the perfect tattoo for you..."
+                    placeholder="Share your tattoo ideas for a personalized design here! Leave it blank for a random suggestion..."
                     value={context}
                     onChange={(e) => setContext(e.target.value)}
                     disabled={inputsDisabled}
@@ -291,6 +300,65 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                             // Set a random value for choice between 1 and 6
                             const randomChoice = Math.floor(Math.random() * 6) + 1;
                             setChoice(randomChoice.toString());
+                        }
+                        if (context ==="") {
+                            const tattooIdeas = [
+                            "Anchor tattoo: Symbol of stability and strength.", 
+                            "Rose tattoo: Represents love, beauty, and passion.", 
+                            "Feather tattoo: Signifies freedom and spirituality.", 
+                            "Skull tattoo: Emblem of mortality and rebellion.", 
+                            "Infinity tattoo: Symbolizes eternity and endless possibilities.",
+                            "Arrow tattoo: Sign of direction and progress.",
+                            "Sunflower tattoo: Symbol of happiness and vitality.",
+                            "Dragon tattoo: Represents power, wisdom, and protection.",
+                            "Butterfly tattoo: Signifies transformation and beauty.",
+                            "Compass tattoo: Emblem of guidance and exploration.",
+                            "Phoenix tattoo: Symbolizes rebirth and renewal.",
+                            "Wave tattoo: Represents the ebb and flow of life.",
+                            "Lotus tattoo: Symbol of purity and enlightenment.",
+                            "Tree of life tattoo: Signifies connection and growth.",
+                            "Mandala tattoo: Emblem of balance and harmony.",
+                            "Lion tattoo: Represents strength, courage, and leadership.",
+                            "Wolf tattoo: Sign of loyalty, independence, and resilience.",
+                            "Elephant tattoo: Symbolizes wisdom, loyalty, and longevity.",
+                            "Dreamcatcher tattoo: Signifies protection and spiritual connection.",
+                            "Hourglass tattoo: Emblem of the passage of time and mortality.",
+                            "Semicolon tattoo: Symbolizes hope and mental health awareness.",
+                            "Abstract geometric tattoo: Represents complexity and individuality.",
+                            "Quill and ink tattoo: Symbol of creativity and expression.",
+                            "Crescent moon tattoo: Signifies intuition and feminine power.",
+                            "Fingerprint heart tattoo: Represents unique love and connection.",
+                            "Origami tattoo: Symbolizes patience and the art of transformation.",
+                            "Starry night sky tattoo: Emblem of wonder and exploration.",
+                            "Bonsai tree tattoo: Signifies balance, harmony, and resilience.",
+                            "Octopus tattoo: Symbol of intelligence, adaptability, and mystery.",
+                            "Molecule tattoo: Represents passion for science or personal significance.",
+                            "Paper plane tattoo: Represents freedom, wanderlust, and adventure.",
+                            "Teapot tattoo: Emblem of comfort, hospitality, and creativity.",
+                            "Sailor Jerry mermaid tattoo: Classic maritime imagery symbolizing beauty and danger.",
+                            "Old school ship tattoo: Represents adventure, resilience, and the journey of life.",
+                            "Swallow tattoo: Emblem of loyalty, freedom, and safe return home.",
+                            "Dagger through heart tattoo: Symbolizes betrayal, heartbreak, and resilience.",
+                            "Snake and dagger tattoo: Traditional design representing danger, protection, and mortality.",
+                            "Traditional eagle tattoo: Emblem of courage, freedom, and power.",
+                            "Anchor with banner tattoo: Customizable design for adding names or meaningful quotes.",
+                            "Traditional rose with dagger tattoo: Symbolizes beauty, love, and protection.",
+                            "Classic pin-up girl tattoo: Represents femininity, allure, and vintage aesthetics.",
+                            "Ship in a bottle tattoo: Emblem of exploration, nostalgia, and adventure.",
+                            "Tiger tattoo: Emblem of strength, courage, and protection in East Asian cultures.",
+                            "Bamboo tattoo: Signifies resilience, flexibility, and longevity in Asian cultures.",
+                            "Peony flower tattoo: Symbolizes prosperity, honor, and good fortune in Chinese culture.",
+                            "Hannya mask tattoo: Represents jealousy, rage, and protection against evil spirits in Japanese folklore.",
+                            "Bonsai tree tattoo: Emblem of balance, harmony, and patience in Japanese culture.",
+                            "Phoenix tattoo: Symbolizes rebirth, renewal, and immortality in East Asian mythology.",
+                            "Dragon and phoenix tattoo: Represents the balance of masculine and feminine energies and harmony in relationships.",
+                            "Korean hanbok tattoo: Signifies traditional Korean culture, elegance, and grace.",
+                            "Tibetan mandala tattoo: Symbolizes the universe, spiritual journey, and meditation in Tibetan Buddhism.",
+                            "Thai elephant tattoo: Emblem of strength, wisdom, and good luck in Thai culture."
+                        ];
+                            const randomIndex = Math.floor(Math.random() * tattooIdeas.length);
+                            setContext(tattooIdeas[randomIndex]);
+
                         }
                         generateTextAndImage();
                         //pickCards();
@@ -330,12 +398,15 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                 </button>
             )}
 
+
             {stage === 2 && generatedImageUrl && (
                 <div className="generated-text">
-                    <p style={{ textAlign: "right", color: "#FFFFFF" }}>{new Date().toLocaleString("en-US", { hour: '2-digit', minute: '2-digit', year: 'numeric', month: 'numeric', day: 'numeric', hour12: true })}</p>
+                    <p style={{ textAlign: "right", color: "rgb(40, 60, 160)" }}>{new Date().toLocaleString("en-US", { hour: '2-digit', minute: '2-digit', year: 'numeric', month: 'numeric', day: 'numeric', hour12: true })}</p>
                     <p style={{ textAlign: "center", fontSize: "18px" }}>Generated Tattoo</p>
-                    <img src={generatedImageUrl} alt="Generated Tattoo" style={{ display: "block", maxWidth: "100%", maxHeight: "400px", marginLeft: "auto", marginRight: "auto" }} />
-                    <p style={{ textAlign: "center", color: "rgb(24, 36, 95)", fontStyle: "italic" }}>Disclaimer: Our AI tattoo artists can have bad days with varying results.</p>
+                    <img src={generatedImageUrl} alt="Generated Tattoo" style={{ display: "block", width: "100%", height: "auto", maxWidth: "100%", margin: "0 auto" }} />
+                    <button onClick={handleDownload} className="download-button" style={{ float: "right", zIndex: "9999" }}>Download</button>
+                    <br />
+                    <p style={{ textAlign: "center", color: "rgb(40, 60, 160)", fontStyle: "italic" }}>Disclaimer: Our AI tattoo artists can have bad days with varying results.</p>
                 </div>
             )}
 

@@ -85,6 +85,24 @@
   border-radius: 5px;
 }
 
+
+
+.download-button {
+  /* Styling for individual buttons */
+  background-color: rgb(40, 60, 160);
+  border: 0px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.download-button:hover {
+  background-color: rgb(56, 150, 109);
+}
+
 /*
 .header-button-google {
   background-color: rgb(40, 60, 160);
@@ -126,7 +144,7 @@
   background-color: rgb(40, 60, 160);
   ;
   color: rgb(255, 255, 255);
-  border: 2px solid rgb(24, 36, 97);
+  border: 2px solid #1e2d79;
   ;
 }
 
@@ -474,7 +492,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: #ffffff;
-  border: 2px solid rgb(25, 38, 100);
+  border: 2px solid #1e2d79;
   max-width: 600px;
   margin: 20px auto;
   padding: 15px;
@@ -501,7 +519,6 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 3;
-
 }
 
 .password-info {
@@ -518,7 +535,6 @@ body {
 .password-info a {
   color: #248dfd;
   text-decoration: none;
-
 }
 
 .password-input {
@@ -529,7 +545,6 @@ body {
   outline: none;
   margin-bottom: 0px;
   box-shadow: 0 0 20px #000000, 0 0 5px #ffffff;
-
 }
 
 @keyframes blink {
@@ -896,7 +911,7 @@ body {
   max-width: 600px;
   margin: 20px auto;
   padding: 15px;
-  border: 2px solid rgb(24, 36, 95);
+  border: 0px solid rgb(24, 36, 95);
   ;
   /*  border: 2px solid rgb(74, 40, 110); */
   border-radius: 5px;
@@ -906,7 +921,7 @@ body {
   line-height: 1.6;
   color: #ffffff;
   text-align: justify;
-  background-color: rgb(50, 73, 188);
+  background-color: #1e2d79;
 }
 
 .generated-text h3 {
@@ -950,7 +965,7 @@ body {
 .user-select:disabled,
 .prompt-input:disabled {
   color: #ffffff;
-  background-color: rgb(40, 60, 160);
+  background-color: #1e2d79;
   border: 1px solid rgb(25, 38, 101);
   opacity: 1;
 }
@@ -958,6 +973,6 @@ body {
 .user-input:disabled::placeholder,
 .user-select:disabled::placeholder,
 .prompt-input:disabled::placeholder {
-  color: rgb(40, 60, 160);
+  color: #1e2d79;
   opacity: 1;
 }
