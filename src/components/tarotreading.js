@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import TarotCards from './tarotcards';
 import '../App.css';
 import { generatePrompt_PPF } from "./generatePrompt_PPF.ts";
 import { generatePrompt_action } from "./generatePrompt_action.ts";
@@ -7,7 +6,6 @@ import { generatePrompt_rel } from "./generatePrompt_rel.ts";
 import { generatePrompt_career } from "./generatePrompt_career.ts";
 import { generatePrompt_daily } from "./generatePrompt_daily.ts";
 import { generatePrompt_weekly } from "./generatePrompt_weekly.ts";
-import { generatePrompt_general } from "./generatePrompt_general.ts";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRefresh } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,16 +16,9 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
 
     const [context, setContext] = useState("");
     const [result, setResult] = useState("");
-    const [cards, setCards] = useState([]);
     const [generatedText, setGeneratedText] = useState("");
+    const [generatedImageUrl, setGeneratedImageUrl] = useState("");
     const [stage, setStage] = useState(0); // 0 for initial, 1 for after card selection, 2 for after evaluation
-    const [tarotCard1Src, setTarotCard1Src] = useState('');
-    const [tarotCard2Src, setTarotCard2Src] = useState('');
-    const [tarotCard3Src, setTarotCard3Src] = useState('');
-    const [showTarotDeck, setShowTarotDeck] = useState(true);
-    const [tarotCard1Direction, setTarotCard1Direction] = useState('');
-    const [tarotCard2Direction, setTarotCard2Direction] = useState('');
-    const [tarotCard3Direction, setTarotCard3Direction] = useState('');
     const [loading2, setLoading2] = useState(false);
     const [showLimitPopup, setShowLimitPopup] = useState(false);
     const [inputsDisabled, setInputsDisabled] = useState(false);
@@ -36,34 +27,10 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
     <Tarotgen
         showPasswordPage={() => setShowPasswordPage(true)}
     />
-    const [reading,] = useState({
-        past: { name: "", reversed: false },
-        present: { name: "", reversed: false },
-        future: { name: "", reversed: false }
-    });
 
     useEffect(() => {
-        setCards([
-            "The Fool", "The Magician", "The High Priestess", "The Empress", "The Emperor",
-            "The Pope", "The Lovers", "The Chariot", "Strength", "The Hermit",
-            "Wheel of Fortune", "Justice", "The Hanged Man", "Death", "Temperance",
-            "The Devil", "The Tower", "The Star", "The Moon", "The Sun",
-            "Judgement", "The World",
-            "Ace of Wands", "Two of Wands", "Three of Wands", "Four of Wands", "Five of Wands",
-            "Six of Wands", "Seven of Wands", "Eight of Wands", "Nine of Wands", "Ten of Wands",
-            "Page of Wands", "Knight of Wands", "Queen of Wands", "King of Wands",
-            "Ace of Cups", "Two of Cups", "Three of Cups", "Four of Cups", "Five of Cups",
-            "Six of Cups", "Seven of Cups", "Eight of Cups", "Nine of Cups", "Ten of Cups",
-            "Page of Cups", "Knight of Cups", "Queen of Cups", "King of Cups",
-            "Ace of Swords", "Two of Swords", "Three of Swords", "Four of Swords", "Five of Swords",
-            "Six of Swords", "Seven of Swords", "Eight of Swords", "Nine of Swords", "Ten of Swords",
-            "Page of Swords", "Knight of Swords", "Queen of Swords", "King of Swords",
-            "Ace of Pentacles", "Two of Pentacles", "Three of Pentacles", "Four of Pentacles", "Five of Pentacles",
-            "Six of Pentacles", "Seven of Pentacles", "Eight of Pentacles", "Nine of Pentacles", "Ten of Pentacles",
-            "Page of Pentacles", "Knight of Pentacles", "Queen of Pentacles", "King of Pentacles"
-        ]);
         // Function to pick a random emoji
-        const emojis = ['👺', '🌈', '💩', '☮️', '👾', '👽', '🤡', '💸', '🎐', '🔗', '💉', '🤖'];
+        const emojis = ['👺', '🌈', '☮️', '👾', '👽', '🤡', '💸', '🎐', '🔗', '💉', '🤖'];
         const pickRandomEmoji = () => {
             const randomIndex = Math.floor(Math.random() * emojis.length);
             return emojis[randomIndex];
@@ -104,35 +71,16 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
     const resetReading = () => {
         setInputsDisabled(false);
         setStage(0);
-        setShowTarotDeck(true);
-        setTarotCard1Src('');
-        setTarotCard2Src('');
-        setTarotCard3Src('');
         setGeneratedText("");
         setMoodChoice('');
         setName('');
         setContext('');
-        setResult("");
-    };
-    const highlightCardNames = (text, reading) => {
-        let modifiedText = text;
-        const cardNames = [reading.current.past.name, reading.current.present.name, reading.current.future.name];
+        setResult("");    };
 
-        // Highlight the card names
-        cardNames.forEach(card => {
-            const regex = new RegExp(`\\b${card}\\b`, 'gi');
-            modifiedText = modifiedText.replace(regex, `<span style="color:#b98145;">${card}</span>`);
-        });
-        return modifiedText;
-    };
 
     const resetReading_alt = () => {
         setInputsDisabled(false);
         setStage(0);
-        setShowTarotDeck(true);
-        setTarotCard1Src('');
-        setTarotCard2Src('');
-        setTarotCard3Src('');
         setGeneratedText("");
         setMoodChoice('');
         setName('');
@@ -141,54 +89,6 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
         setResult("");
     };
 
-    const encodeFileName = (fileName) => {
-        return fileName.split(' ').join('%20');
-    };
-
-    const pickCards = () => {
-
-        setInputsDisabled(true);
-        setLoading2(true);
-        let deck = [...cards];
-        let past = deck.splice(Math.floor(Math.random() * deck.length), 1)[0];
-        let present = deck.splice(Math.floor(Math.random() * deck.length), 1)[0];
-        let future = deck.splice(Math.floor(Math.random() * deck.length), 1)[0];
-
-        // Preload the images for the selected tarot cards
-        [past, present, future].forEach(card => {
-            const img = new Image();
-            img.src = `/tarot_deck/${encodeFileName(card)}.jpg`;
-        });
-
-        setTarotCard1Direction(Math.random() < 0.5 ? '-100%' : '100%');
-        setTarotCard2Direction(Math.random() < 0.5 ? '-100%' : '100%');
-        setTarotCard3Direction(Math.random() < 0.5 ? '-100%' : '100%');
-        setTarotCard1Src('tarot2_card1_v2.png');
-
-        setTimeout(() => {
-            setTarotCard2Src('tarot4_card2_v2.png');
-        }, 500);
-
-        setTimeout(() => {
-            setTarotCard3Src('tarot6_card3_v2.png');
-        }, 1000);
-
-        setTimeout(() => {
-            document.querySelector('.tarot-deck-container').classList.add('fade-out');
-        }, 2000);
-
-        setTimeout(() => {
-            setShowTarotDeck(false);
-            reading.current = {
-                past: { name: past, reversed: Math.random() < 0.5, image: `/tarot_deck/${encodeFileName(past)}.jpg` },
-                present: { name: present, reversed: Math.random() < 0.5, image: `/tarot_deck/${encodeFileName(present)}.jpg` },
-                future: { name: future, reversed: Math.random() < 0.5, image: `/tarot_deck/${encodeFileName(future)}.jpg` }
-            };
-            setStage(1);
-            setLoading2(false);
-        }, 3000);
-
-    };
     const ReadingLimitPopup = () => {
         return (
             <div className="popup-overlay">
@@ -210,14 +110,16 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
             setShowPasswordPage(true);
             return;
         }
-
-        const moodDescriptions = {
-            "1": "Ecstatic",
-            "2": "Content",
-            "3": "Neutral",
-            "4": "Anxious",
-            "5": "Melancholic",
-            "6": "unspecified feeling"
+        setInputsDisabled(true);
+        const tattoomotivation = {
+            "1": "Memorial",
+            "2": "Spiritual",
+            "3": "Personal milestone",
+            "4": "for fun",
+            "5": "self expression",
+            "6": "sense of belonging",
+            "7": "heartbreak",
+            "8": "i dont want to share"
         };
         const promptGenerators = {
             "1": generatePrompt_PPF,
@@ -226,45 +128,49 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
             "4": generatePrompt_career,
             "5": generatePrompt_daily,
             "6": generatePrompt_weekly,
-            "7": generatePrompt_general,
             "": generatePrompt_PPF,
         };
         const promptGenerator = promptGenerators[choice];
-        const userMood = moodDescriptions[moodChoice] || "Undefined";
+        const userMood = tattoomotivation[moodChoice] || "Undefined";
 
-        if (todayClicks.length < 2) {
+        if (todayClicks.length < 100) {
             setLoading(true);
-            const { past, present, future } = reading.current;
-            const formatCard = (card) => {
-                return card.reversed ? `${card.name} (Reversed)` : card.name;
-            };
-
             const textPrompt = promptGenerator({
                 NAMEHERE: name,
                 MOODHERE: userMood,
-                CONTEXTHERE: context,
-                pastCard: formatCard(past),
-                presentCard: formatCard(present),
-                futureCard: formatCard(future)
+                CONTEXTHERE: context
             });
             try {
                 const URL2 = `${process.env.REACT_APP_VALUE3}${process.env.REACT_APP_VALUE1}${process.env.REACT_APP_VALUE4}`;
-                // Step 1: Generate text with GPT
-                const textResponse = await fetch('https://api.openai.com/v1/chat/completions', {
+                const imageResponse = await fetch('https://api.openai.com/v1/images/generations', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${URL2}`
                     },
                     body: JSON.stringify({
-                        model: 'gpt-4',  // Specify the model you want to use 'gpt-3.5-turbo-1106'
-                        messages: [{ role: 'system', content: 'You are an expert AI Tarot reader.' }, { role: 'user', content: textPrompt }],
-                        max_tokens: 2000
+                        prompt: textPrompt,
+                        n: 1,
+                        size: "1024x1024"
                     })
                 });
+            
+                if (!imageResponse.ok) {
+                    console.log(imageResponse);
+                    imageResponse.json().then(data => console.log(data));
+                    throw new Error('Network response was not ok.');
+                }
+            
+                const imageData = await imageResponse.json();
+                // Ensure imageData has the structure you expect before accessing it
+                if (!imageData.data || imageData.data.length === 0) {
+                    throw new Error('No image data found.');
+                }
+            
+                const generatedImageUrl = imageData.data[0].url;
+                console.log('Generated image URL:', imageData.data[0].url);
+                setGeneratedImageUrl(generatedImageUrl);
 
-                const textData = await textResponse.json();
-                setGeneratedText(textData.choices[0].message.content);
             } catch (error) {
                 console.error(`Error: ${error.message}`);
             } finally {
@@ -365,7 +271,7 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
 
             {stage === 0 && (
                 <button
-                    className="button-design"
+                    className="button-design" 
                     onClick={() => {
                         // Uncomment and modify this section if you decide to auto-fill the moodChoice later
                         /*
@@ -386,40 +292,23 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                             const randomChoice = Math.floor(Math.random() * 6) + 1;
                             setChoice(randomChoice.toString());
                         }
-
-                        pickCards();
+                        generateTextAndImage();
+                        //pickCards();
                     }}
                     disabled={loading2}
 
                 >
-                    {loading2 ? 'Drawing cards' : 'Generate Tattoo'}
+                    {loading2 ? 'preparing stencil' : 'Generate Tattoo'}
                 </button>
 
 
             )}
-            
-            {/* deck container */}
-            {/*showTarotDeck && (
-                <div className="tarot-deck-container" >
-                    <img src="tarot1_stack1.png" alt="tarot1_stack1" className="tarot1_stack1" />
-                    {tarotCard1Src && <img src={tarotCard1Src} alt="tarot2_card1" className="tarot2_card1" style={{ '--slide-direction': tarotCard1Direction }} />}
-                    <img src="tarot3_stack2.png" alt="tarot3_stack2" className="tarot3_stack2" />
-                    {tarotCard2Src && <img src={tarotCard2Src} alt="tarot4_card2" className="tarot4_card2" style={{ '--slide-direction': tarotCard2Direction }} />}
-                    <img src="tarot5_stack3.png" alt="tarot5_stack3" className="tarot5_stack3" />
-                    {tarotCard3Src && <img src={tarotCard3Src} alt="tarot6_card3" className="tarot6_card3" style={{ '--slide-direction': tarotCard3Direction }} />}
-                    <img src="tarot7_stack4_v2.png" alt="tarot7_stack4" className="tarot7_stack4" />
-                    <img src="tarot8_stack5_v2.png" alt="tarot8_stack5" className="tarot8_stack5" />
-
-                </div>)*/}
-                
-
-
-            {stage >= 1 && (
+           
+            {/*stage >= 1 && (
                 <div className="tarot-cards-container">
                     <TarotCards reading={reading.current} />
                 </div>
-            )}
-
+            )*/}
 
             {stage === 1 && (
                 <div className="button-layout">
@@ -441,12 +330,12 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                 </button>
             )}
 
-            {stage === 2 && generatedText && (
+            {stage === 2 && generatedImageUrl && (
                 <div className="generated-text">
-                    <p style={{ textAlign: "right", color: "#6a567b" }}>{new Date().toLocaleString("en-US", { hour: '2-digit', minute: '2-digit', year: 'numeric', month: 'numeric', day: 'numeric', hour12: true })}</p>
-                    <p style={{ textAlign: "center", fontSize: "18px" }}>Generated Reading</p>
-                    <p dangerouslySetInnerHTML={{ __html: highlightCardNames(generatedText, reading).replace(/\n/g, '<br />') }} style={{ fontSize: "16px" }}></p>
-                    <p style={{ textAlign: "center", color: "grey", fontStyle: "italic" }}>Disclaimer: Our AI tarot readers can offer guidance, but the path you choose is your own. Embrace the mystery, trust your intuition, and follow your heart.</p>
+                    <p style={{ textAlign: "right", color: "#FFFFFF" }}>{new Date().toLocaleString("en-US", { hour: '2-digit', minute: '2-digit', year: 'numeric', month: 'numeric', day: 'numeric', hour12: true })}</p>
+                    <p style={{ textAlign: "center", fontSize: "18px" }}>Generated Tattoo</p>
+                    <img src={generatedImageUrl} alt="Generated Tattoo" style={{ display: "block", maxWidth: "100%", maxHeight: "400px", marginLeft: "auto", marginRight: "auto" }} />
+                    <p style={{ textAlign: "center", color: "rgb(24, 36, 95)", fontStyle: "italic" }}>Disclaimer: Our AI tattoo artists can have bad days with varying results.</p>
                 </div>
             )}
 
@@ -454,7 +343,7 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
 
             {loading && (
                 <>
-                    <p className="loading-text">⏳ AI is deep reading your cards ⌛️</p>
+                    <p className="loading-text">⏳ AI is designing your tattoo ⌛️</p>
                     <p className="loading-subtext">{loadingMessages[currentMessage]}</p>
                 </>
             )}

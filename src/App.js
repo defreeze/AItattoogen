@@ -38,7 +38,7 @@ function App() {
       });
   };
   const handleFeedbackClick = () => {
-    window.open('https://forms.gle/mYw64PTEUC3C8RsWA', '_blank');
+    window.open('https://forms.gle/8hMCV8TjrxeXXdHA8', '_blank');
   };
   const logOut = () => {
     signOut(auth)
@@ -110,11 +110,6 @@ function App() {
                   <img src="/AI_tarot_final1.png" alt="AI Tarot" className="bottom-right-image" />
                   <img src="/AI_tarot_final1_purple.png" alt="Loading" className={`loading-image ${loading ? '' : 'hidden'}`} />
                   <img src="/tarotstar2.png" alt="Tarot Star" className="tarot-star" />
-                  {/*
-                  <img src="/AI_tarot_final1_wise_manv2.png" alt="AI Tarot" className="bottom-right-image2" />
-                  <img src="/AI_tarot_final1_purple.png" alt="Loading" className={`loading-image ${loading ? '' : 'hidden'}`} />
-                  <img src="/AI_tarot_final1_wise_manv2_animation.png" alt="Tarot Star" className="oldman_fade" />
-              */}
                 </>
               ) : []
               }
@@ -129,12 +124,6 @@ function App() {
                       <Link to="/account" className="my_account_button">
                         My Account
                       </Link>
-                      {/* 
-                      <button className="header-button-google" onClick={logOut}>
-                        <img src="web_neutral_sq_na@1x.png" alt="Google" className="google-logo" />
-                        Sign out
-                      </button>
-                      */}
                     </>
                   ) : (
                     <button className="header-button-google" onClick={login}>
