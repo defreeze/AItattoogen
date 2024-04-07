@@ -291,7 +291,7 @@ body {
   position: fixed;
   bottom: 0;
   right: 0%;
-  z-index: 2;
+  z-index: 1;
   animation: fadeInOut2 5s infinite;
   width: 25%;
   height: auto;
@@ -325,7 +325,7 @@ body {
   }
 
   50% {
-    opacity: 1;
+    opacity: 0.7;
     filter: box-shadow(0 0 20px rgb(7, 147, 35, 0.7));
   }
 }
