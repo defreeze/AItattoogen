@@ -331,7 +331,7 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                                 "Traditional eagle tattoo: An eagle in flight, with spread wings and detailed feathers.",
                                 "Anchor with banner tattoo: An anchor with a flowing banner for names or quotes.",
                                 "Traditional rose with dagger tattoo: A rose intertwined with a dagger, showing both beauty and danger.",
-                                "Classic pin-up girl tattoo: A vintage pin-up girl, with classic attire and pose.",
+                                "Classic girl tattoo: A vintage reasonably dressed pin-up girl, with classic attire and pose.",
                                 "Ship in a bottle tattoo: A detailed ship inside a glass bottle, with waves and cork.",
                                 "Tiger tattoo: A fierce tiger, with detailed stripes and menacing eyes.",
                                 "Bamboo tattoo: A cluster of bamboo stalks, with detailed leaves and joints.",
