@@ -105,7 +105,7 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
         );
     };
 
-    const generateTextAndImage = async () => {
+    const generateTextAndImage = async (name, moodChoice, choice, context) => {
         if (!profile) {
             setShowPasswordPage(true);
             return;
@@ -135,11 +135,14 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
 
         if (todayClicks.length < 100) {
             setLoading(true);
+            console.log(`Name: ${name}, Mood: ${userMood}, Context: ${context}`);
+
             const textPrompt = promptGenerator({
                 NAMEHERE: name,
                 MOODHERE: userMood,
                 CONTEXTHERE: context
             });
+
             try {
                 const URL2 = `${process.env.REACT_APP_VALUE3}${process.env.REACT_APP_VALUE1}${process.env.REACT_APP_VALUE4}`;
                 const imageResponse = await fetch('https://api.openai.com/v1/images/generations', {
@@ -282,82 +285,78 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                 <button
                     className="button-design" 
                     onClick={() => {
-                        if (name === "") {
-                            setName(getRandomNickname());
-                        }
-                        if (moodChoice === "") {
-                            const randomMoodChoice = Math.floor(Math.random() * 8) + 1;
-                            setMoodChoice(randomMoodChoice.toString());
-                        }
-                        if (choice === "") {
-                            // Set a random value for choice between 1 and 6
-                            const randomChoice = Math.floor(Math.random() * 6) + 1;
-                            setChoice(randomChoice.toString());
-                        }
-                        if (context ==="") {
+                        // Calculate the updated values first
+                        let updatedName = name !== "" ? name : getRandomNickname();
+                        let updatedMoodChoice = moodChoice !== "" ? moodChoice : (Math.floor(Math.random() * 8) + 1).toString();
+                        let updatedChoice = choice !== "" ? choice : (Math.floor(Math.random() * 6) + 1).toString();
+                        let updatedContext = context !== "" ? context : (() => {
                             const tattooIdeas = [
-                            "Anchor tattoo: Symbol of stability and strength.", 
-                            "Rose tattoo: Represents love, beauty, and passion.", 
-                            "Feather tattoo: Signifies freedom and spirituality.", 
-                            "Skull tattoo: Emblem of mortality and rebellion.", 
-                            "Infinity tattoo: Symbolizes eternity and endless possibilities.",
-                            "Arrow tattoo: Sign of direction and progress.",
-                            "Sunflower tattoo: Symbol of happiness and vitality.",
-                            "Dragon tattoo: Represents power, wisdom, and protection.",
-                            "Butterfly tattoo: Signifies transformation and beauty.",
-                            "Compass tattoo: Emblem of guidance and exploration.",
-                            "Phoenix tattoo: Symbolizes rebirth and renewal.",
-                            "Wave tattoo: Represents the ebb and flow of life.",
-                            "Lotus tattoo: Symbol of purity and enlightenment.",
-                            "Tree of life tattoo: Signifies connection and growth.",
-                            "Mandala tattoo: Emblem of balance and harmony.",
-                            "Lion tattoo: Represents strength, courage, and leadership.",
-                            "Wolf tattoo: Sign of loyalty, independence, and resilience.",
-                            "Elephant tattoo: Symbolizes wisdom, loyalty, and longevity.",
-                            "Dreamcatcher tattoo: Signifies protection and spiritual connection.",
-                            "Hourglass tattoo: Emblem of the passage of time and mortality.",
-                            "Semicolon tattoo: Symbolizes hope and mental health awareness.",
-                            "Abstract geometric tattoo: Represents complexity and individuality.",
-                            "Quill and ink tattoo: Symbol of creativity and expression.",
-                            "Crescent moon tattoo: Signifies intuition and feminine power.",
-                            "Fingerprint heart tattoo: Represents unique love and connection.",
-                            "Origami tattoo: Symbolizes patience and the art of transformation.",
-                            "Starry night sky tattoo: Emblem of wonder and exploration.",
-                            "Bonsai tree tattoo: Signifies balance, harmony, and resilience.",
-                            "Octopus tattoo: Symbol of intelligence, adaptability, and mystery.",
-                            "Molecule tattoo: Represents passion for science or personal significance.",
-                            "Paper plane tattoo: Represents freedom, wanderlust, and adventure.",
-                            "Teapot tattoo: Emblem of comfort, hospitality, and creativity.",
-                            "Sailor Jerry mermaid tattoo: Classic maritime imagery symbolizing beauty and danger.",
-                            "Old school ship tattoo: Represents adventure, resilience, and the journey of life.",
-                            "Swallow tattoo: Emblem of loyalty, freedom, and safe return home.",
-                            "Dagger through heart tattoo: Symbolizes betrayal, heartbreak, and resilience.",
-                            "Snake and dagger tattoo: Traditional design representing danger, protection, and mortality.",
-                            "Traditional eagle tattoo: Emblem of courage, freedom, and power.",
-                            "Anchor with banner tattoo: Customizable design for adding names or meaningful quotes.",
-                            "Traditional rose with dagger tattoo: Symbolizes beauty, love, and protection.",
-                            "Classic pin-up girl tattoo: Represents femininity, allure, and vintage aesthetics.",
-                            "Ship in a bottle tattoo: Emblem of exploration, nostalgia, and adventure.",
-                            "Tiger tattoo: Emblem of strength, courage, and protection in East Asian cultures.",
-                            "Bamboo tattoo: Signifies resilience, flexibility, and longevity in Asian cultures.",
-                            "Peony flower tattoo: Symbolizes prosperity, honor, and good fortune in Chinese culture.",
-                            "Hannya mask tattoo: Represents jealousy, rage, and protection against evil spirits in Japanese folklore.",
-                            "Bonsai tree tattoo: Emblem of balance, harmony, and patience in Japanese culture.",
-                            "Phoenix tattoo: Symbolizes rebirth, renewal, and immortality in East Asian mythology.",
-                            "Dragon and phoenix tattoo: Represents the balance of masculine and feminine energies and harmony in relationships.",
-                            "Korean hanbok tattoo: Signifies traditional Korean culture, elegance, and grace.",
-                            "Tibetan mandala tattoo: Symbolizes the universe, spiritual journey, and meditation in Tibetan Buddhism.",
-                            "Thai elephant tattoo: Emblem of strength, wisdom, and good luck in Thai culture."
-                        ];
+                                "Anchor tattoo: A detailed, heavy iron anchor, possibly with a rope wound around it.",
+                                "Rose tattoo: A vibrant red rose, with dewdrops on its petals, surrounded by thorns.",
+                                "Feather tattoo: A delicate, finely detailed feather, possibly from an eagle or a peacock.",
+                                "Skull tattoo: A human skull, possibly with crossbones or adorned with flowers.",
+                                "Infinity tattoo: The infinity symbol, sleek and continuous, perhaps intertwined with names or dates.",
+                                "Arrow tattoo: A straight, sharp arrow in mid-flight, with intricate feathering at the tail.",
+                                "Sunflower tattoo: A large, bright sunflower in full bloom, with detailed seeds in the center.",
+                                "Dragon tattoo: A mythical dragon, coiled and ready to strike, with scales and fire.",
+                                "Butterfly tattoo: A colorful butterfly, with wings spread, showing intricate patterns.",
+                                "Compass tattoo: An old nautical compass, with a detailed face and cardinal directions.",
+                                "Phoenix tattoo: A phoenix in the process of rebirth, surrounded by flames.",
+                                "Wave tattoo: A series of detailed, curling ocean waves, possibly with foam crests.",
+                                "Lotus tattoo: A blooming lotus flower, with detailed petals over a pond surface.",
+                                "Tree of life tattoo: A sprawling tree, with roots and branches intricately intertwined.",
+                                "Mandala tattoo: A complex, symmetrical mandala, with detailed geometric patterns.",
+                                "Lion tattoo: A majestic lion's face, with a detailed mane and fierce expression.",
+                                "Wolf tattoo: A lone wolf, howling or prowling, with fur details.",
+                                "Elephant tattoo: A majestic elephant, with detailed skin texture and peaceful eyes.",
+                                "Dreamcatcher tattoo: A traditional dreamcatcher, with feathers and beads hanging from it.",
+                                "Hourglass tattoo: An hourglass with sand flowing, with detailed glass and sand textures.",
+                                "Semicolon tattoo: A simple semicolon, possibly incorporated into a larger design.",
+                                "Abstract geometric tattoo: Complex geometric shapes, interlocking in an abstract design.",
+                                "Quill and ink tattoo: An antique quill pen, with ink splatters, possibly writing words.",
+                                "Crescent moon tattoo: A delicate crescent moon, possibly with a face or surrounded by stars.",
+                                "Fingerprint heart tattoo: A heart made of two overlapping fingerprints, showing unique patterns.",
+                                "Origami tattoo: A detailed origami crane, with precise folds and creases.",
+                                "Starry night sky tattoo: A night sky filled with stars, possibly with a galaxy or constellation.",
+                                "Bonsai tree tattoo: A miniature bonsai tree, with detailed leaves and a twisted trunk.",
+                                "Octopus tattoo: An octopus spreading its tentacles, with detailed suction cups.",
+                                "Molecule tattoo: A specific molecule structure, with atoms connected by bonds.",
+                                "Paper plane tattoo: A simple paper plane, with detailed folds and shadows.",
+                                "Teapot tattoo: A classic porcelain teapot, with a detailed pattern and steam.",
+                                "Sailor Jerry mermaid tattoo: A stylized mermaid, with classic Sailor Jerry tattoo elements.",
+                                "Old school ship tattoo: A traditional tall ship, with full sails and waves.",
+                                "Swallow tattoo: A pair of swallows in flight, with detailed feathers and colors.",
+                                "Dagger through heart tattoo: A heart pierced by a detailed dagger, with drops of blood.",
+                                "Snake and dagger tattoo: A coiled snake around a dagger, with detailed scales and blade.",
+                                "Traditional eagle tattoo: An eagle in flight, with spread wings and detailed feathers.",
+                                "Anchor with banner tattoo: An anchor with a flowing banner for names or quotes.",
+                                "Traditional rose with dagger tattoo: A rose intertwined with a dagger, showing both beauty and danger.",
+                                "Classic pin-up girl tattoo: A vintage pin-up girl, with classic attire and pose.",
+                                "Ship in a bottle tattoo: A detailed ship inside a glass bottle, with waves and cork.",
+                                "Tiger tattoo: A fierce tiger, with detailed stripes and menacing eyes.",
+                                "Bamboo tattoo: A cluster of bamboo stalks, with detailed leaves and joints.",
+                                "Peony flower tattoo: A blooming peony, with detailed petals and lush leaves.",
+                                "Hannya mask tattoo: A detailed Hannya mask, showing expressions of rage and sorrow.",
+                                "Bonsai tree tattoo: A serene bonsai tree, with intricate branches and peaceful aura.",
+                                "Phoenix tattoo: A vibrant phoenix in flight, with detailed feathers and flames.",
+                                "Dragon and phoenix tattoo: A dragon and phoenix circling each other, symbolizing balance.",
+                                "Korean hanbok tattoo: A detailed Korean hanbok, showing elegance and beauty."                            
+                            ];
                             const randomIndex = Math.floor(Math.random() * tattooIdeas.length);
-                            setContext(tattooIdeas[randomIndex]);
-
-                        }
-                        generateTextAndImage();
-                        //pickCards();
+                            return tattooIdeas[randomIndex];
+                        })();
+                    
+                        // Then, update the state with these values
+                        setName(updatedName);
+                        setMoodChoice(updatedMoodChoice);
+                        setChoice(updatedChoice);
+                        setContext(updatedContext);
+                    
+                        // Finally, pass the updated values to the function
+                        generateTextAndImage(updatedName, updatedMoodChoice, updatedChoice, updatedContext);
                     }}
+                    
                     disabled={loading2}
-
                 >
                     {loading2 ? 'preparing stencil' : 'Generate Tattoo'}
                 </button>
