@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import '../App.css';
-import { generatePrompt_PPF } from "./generatePrompt_PPF.ts";
-import { generatePrompt_action } from "./generatePrompt_action.ts";
-import { generatePrompt_rel } from "./generatePrompt_rel.ts";
-import { generatePrompt_career } from "./generatePrompt_career.ts";
-import { generatePrompt_daily } from "./generatePrompt_daily.ts";
-import { generatePrompt_weekly } from "./generatePrompt_weekly.ts";
+import { generatePrompt_traditional } from "./generatePrompt_traditional.ts";
+import { generatePrompt_geometric } from "./generatePrompt_geometric.ts";
+import { generatePrompt_watercolor } from "./generatePrompt_watercolor.ts";
+import { generatePrompt_japanese } from "./generatePrompt_japanese.ts";
+import { generatePrompt_cartoon } from "./generatePrompt_cartoon.ts";
+import { generatePrompt_ignorant } from "./generatePrompt_ignorant.ts";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRefresh } from '@fortawesome/free-solid-svg-icons';
 
@@ -122,13 +122,13 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
             "8": "i dont want to share"
         };
         const promptGenerators = {
-            "1": generatePrompt_PPF,
-            "2": generatePrompt_action,
-            "3": generatePrompt_rel,
-            "4": generatePrompt_career,
-            "5": generatePrompt_daily,
-            "6": generatePrompt_weekly,
-            "": generatePrompt_PPF,
+            "1": generatePrompt_traditional,
+            "2": generatePrompt_geometric,
+            "3": generatePrompt_watercolor,
+            "4": generatePrompt_japanese,
+            "5": generatePrompt_cartoon,
+            "6": generatePrompt_ignorant,
+            "": generatePrompt_traditional,
         };
         const promptGenerator = promptGenerators[choice];
         const userMood = tattoomotivation[moodChoice] || "Undefined";
@@ -282,13 +282,6 @@ function Tarotgen({ profile, setLoading, loading, choice, setChoice, setShowPass
                 <button
                     className="button-design" 
                     onClick={() => {
-                        // Uncomment and modify this section if you decide to auto-fill the moodChoice later
-                        /*
-                        if (moodChoice === "") {
-                            const randomMoodChoice = Math.floor(Math.random() * 8) + 1;
-                            setMoodChoice(randomMoodChoice.toString());
-                        }
-                        */
                         if (name === "") {
                             setName(getRandomNickname());
                         }
