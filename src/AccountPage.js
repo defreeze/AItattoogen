@@ -23,7 +23,7 @@ function AccountPage({ profile, logOut }) {
                 >
                 </stripe-buy-button>
                 <stripe-buy-button
-                buy-button-id="buy_btn_1OeNxWHT5oVjW8CfHueYoAj1"
+                buy-button-id="buy_btn_1P7hIJHT5oVjW8CfViy0a7rr"Z3C
                 publishable-key="pk_live_51OeNIGHT5oVjW8CfCamtlKEIh0Sgk0TaL4VyqCtIeoj7BVS1ozyp8D1LjgaVZqLUKyK1FOZ3C7g50ogUlIIWdccB00X41v6XyF"
                 >
                 </stripe-buy-button>
