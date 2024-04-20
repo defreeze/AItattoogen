@@ -18,7 +18,7 @@ function AccountPage({ profile, logOut }) {
             stripeButtonRef.current.innerHTML = `
             <div class="stripe-buttons-container">
                 <stripe-buy-button
-                buy-button-id="buy_btn_1OeOtJHT5oVjW8Cf06ub65LB"
+                buy-button-id="buy_btn_1P7h5gHT5oVjW8CfiJsFHNLy"
                 publishable-key="pk_live_51OeNIGHT5oVjW8CfCamtlKEIh0Sgk0TaL4VyqCtIeoj7BVS1ozyp8D1LjgaVZqLUKyK1FOZ3C7g50ogUlIIWdccB00X41v6XyF"
                 >
                 </stripe-buy-button>
